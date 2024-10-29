@@ -36,4 +36,6 @@ API_KEY=받은 api key
 1. `prompt.txt` 에 프롬프트 입력
 
 2. `main.py` 실행
-3. 콘솔 출력 및 `response.txt`에 저장된 결과 확인
+3. 콘솔 입력을 통해 대화 시작
+4. `quit` 또는 `exit`를 입력해 대화 종료
+5. `response.txt`에 대화 내역 저장
