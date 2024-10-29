@@ -9,16 +9,8 @@
 
 2. 라이브러리 설치
 
-- OpenAI API
-
 ```
-pip install openai
-```
-
-- python-dotenv
-
-```
-pip install python-dotenv
+pip install PyQt6 openai python-dotenv
 ```
 
 3. 프로젝트 폴더에 `.env` 파일 생성
@@ -36,6 +28,6 @@ API_KEY=받은 api key
 1. `prompt.txt` 에 프롬프트 입력
 
 2. `main.py` 실행
-3. 콘솔 입력을 통해 대화 시작
-4. `quit` 또는 `exit`를 입력해 대화 종료
+3. 실행된 gui 창에서 대화 시작
+4. `quit` 또는 `exit`를 입력하거나, Exit 버튼을 클릭해 대화 종료
 5. `response.txt`에 대화 내역 저장
