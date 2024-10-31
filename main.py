@@ -13,7 +13,7 @@ def ask_openai(client, messages, file_name):
   
   # 응답 텍스트를 파일에 저장
   with open(file_name, "a") as response_file:
-    response_file.write(f"AI: {answer}\n")
+    response_file.write(f"Lime AI: {answer}\n")
   
   return answer
 
@@ -62,7 +62,7 @@ def chat_loop(client, messages, file_name):
     messages.append({"role": "user", "content": user_input})
     
     answer = ask_openai(client, messages, file_name)
-    print(f"AI: {answer}")
+    print(f"Lime AI: {answer}")
     
     messages.append({"role": "assistant", "content": answer})
 
