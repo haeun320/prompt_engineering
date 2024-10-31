@@ -13,7 +13,7 @@ def ask_openai(client, messages, file_name):
   
   # 응답 텍스트를 파일에 저장
   with open(file_name, "a") as response_file:
-    response_file.write(f"Lime AI: {answer}\n")
+    response_file.write(f"Lime AI: {answer}\n\n")
   
   return answer
 
@@ -28,7 +28,8 @@ def initialize_chat():
   
   # 초기 시스템 메시지 설정
   messages = [
-    {"role": "system", "content": initial_message}
+    {"role": "system", "content": initial_message},
+    {"role": "assistant", "content": "안녕하세요, Lime AI에 오신 것을 환영합니다!"}
   ]
   
   # responses 폴더가 없으면 생성
@@ -43,18 +44,20 @@ def initialize_chat():
   with open(file_name, "w") as response_file:
     response_file.write("==================== Prompt ====================\n")
     response_file.write(f"{initial_message}\n\n")
-    response_file.write("==================== Chat Log ====================\n")
-  
+    response_file.write("==================== Chat Log ====================\n\n")
+    response_file.write("Lime AI: 안녕하세요, Lime AI에 오신 것을 환영합니다!\n\n")
   return client, messages, file_name
 
 def chat_loop(client, messages, file_name):
-  print("대화를 시작합니다. 종료하려면 'exit' 또는 'quit'를 입력하세요.")
-  
+  # print("대화를 시작합니다. 종료하려면 'exit' 또는 'quit'를 입력하세요.\n")
+  print("안녕하세요, Lime AI에 오신 것을 환영합니다!\n대화를 종료하려면 'exit' 또는 'quit'를 입력하세요\n")
+
   while True:
     user_input = input("User: ")
+
     if user_input.lower() in ["exit", "quit"]:
       break
-    
+
     # 유저 입력을 파일에 저장
     with open(file_name, "a") as response_file:
       response_file.write(f"User: {user_input}\n")
@@ -62,7 +65,7 @@ def chat_loop(client, messages, file_name):
     messages.append({"role": "user", "content": user_input})
     
     answer = ask_openai(client, messages, file_name)
-    print(f"Lime AI: {answer}")
+    print(f"\nLime AI: {answer}\n")
     
     messages.append({"role": "assistant", "content": answer})
 
